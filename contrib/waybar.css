@@ -1,0 +1,25 @@
+/* dictator waybar module styling. Classes come from `dictator watch
+   -format waybar`: the mode name, plus "warning" when the daemon reports a
+   degraded environment (e.g. wtype missing). Colours are placeholders —
+   swap in the palette from linux_config/config.py. */
+#custom-dictator {
+    padding: 0 8px;
+}
+#custom-dictator.type {
+    color: #ff5555;   /* recording, keystrokes go to the focused window */
+}
+#custom-dictator.notes {
+    color: #f1fa8c;   /* recording to a notes file */
+}
+#custom-dictator.idle {
+    opacity: 0.45;
+}
+#custom-dictator.starting {
+    color: #8be9fd;
+}
+#custom-dictator.down {
+    opacity: 0.25;
+}
+#custom-dictator.warning {
+    color: #ffb86c;
+}
