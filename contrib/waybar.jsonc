@@ -8,13 +8,19 @@
         "exec": "dictator watch -format waybar",
         "return-type": "json",
         "restart-interval": 2,
-        "format": "{icon}",
+        // A fixed prefix so this is not mistaken for the privacy/pulseaudio mic
+        // icons: md-crown (U+F01A5), because dictator. Other candidates:
+        // 󱌈 md-account_tie_voice, 󰼭 md-typewriter, 󰃦 md-bullhorn.
+        "format": "󰆥 {icon}",
+        // Nerd Font glyphs (Material Design set, present in Hack Nerd Font):
+        // type=md-microphone notes=md-notebook_edit idle=md-microphone_off
+        // starting=md-timer_sand down=md-microphone_question
         "format-icons": {
             "type": "󰍬",
-            "notes": "",
+            "notes": "󱓧",
             "idle": "󰍭",
-            "starting": "",
-            "down": "󰍭"
+            "starting": "󰔟",
+            "down": "󱦉"
         },
         "escape": true,
         "tooltip": true,
