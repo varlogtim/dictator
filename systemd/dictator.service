@@ -1,0 +1,20 @@
+[Unit]
+Description=dictator — local speech-to-text daemon (Parakeet via sherpa-onnx)
+Documentation=https://github.com/varlogtim/dictator
+
+[Service]
+Type=simple
+# %h expands to the user's home directory. Binaries live in ~/.local/bin and
+# the native libraries in ~/.local/lib/dictator (found via the binary's rpath).
+ExecStart=%h/.local/bin/dictatord
+# Every flag has a DICTATOR_* variable; see contrib/dictator.env.example.
+# The leading "-" makes the file optional.
+EnvironmentFile=-%h/.config/dictator/dictator.env
+# The model is ~800 MB resident. If it keeps getting swapped out while idle
+# and the first phrase after a pause is sluggish, uncomment:
+#MemoryLow=1G
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

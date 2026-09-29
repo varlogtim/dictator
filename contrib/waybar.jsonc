@@ -1,0 +1,24 @@
+// dictator waybar module. Add "custom/dictator" to modules-right (e.g. just
+// before "privacy") and merge this definition into the config. The client
+// streams one JSON line per state change and reconnects by itself while the
+// daemon is down, so there is no polling; "alt" picks the icon and "class"
+// drives the CSS in waybar.css.
+{
+    "custom/dictator": {
+        "exec": "dictator watch -format waybar",
+        "return-type": "json",
+        "restart-interval": 2,
+        "format": "{icon}",
+        "format-icons": {
+            "type": "󰍬",
+            "notes": "",
+            "idle": "󰍭",
+            "starting": "",
+            "down": "󰍭"
+        },
+        "escape": true,
+        "tooltip": true,
+        "on-click": "dictator -notify toggle type",
+        "on-click-right": "dictator -notify toggle notes"
+    }
+}
